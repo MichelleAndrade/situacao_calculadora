@@ -7,6 +7,10 @@ let operacao = ''
 
 const reset = function(){
     visor = ''
+    valor1 = null
+    valor2 = null
+    resultado = 0
+    operacao = ''
     labelVisor.innerHTML= visor 
 }
 
@@ -85,6 +89,7 @@ const clickOpSub = function(){
     if(valor1=== null ){
         let numero = parseFloat(visor)
         valor1 = numero
+        
         visor= ''
     }
     
@@ -96,15 +101,22 @@ const igual = function () {
         valor2 = numero
         conta(valor1,valor2)
         labelVisor.innerHTML = resultado
-        valor2 = resultado
+        valor1 = resultado
         visor=''
     }else if (valor2 !== null && visor !==''){
+        let numero = parseFloat(visor)
+        valor2=numero
         conta(valor1,valor2)
         labelVisor.innerHTML = resultado
-        valor2 = resultado
+        valor1 = resultado
         visor=''
+        
+    }else{
+        conta(valor1, valor2)
+        labelVisor.innerHTML = resultado
+        valor1 = resultado
     }
-     resultado= conta(num1,num2)
+    
 
  }
  const conta = function (num1 , num2)  {
